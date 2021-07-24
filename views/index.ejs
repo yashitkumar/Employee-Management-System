@@ -1,0 +1,81 @@
+<!doctype html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <link rel="shortcut icon" href="img/icon.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="css/home.css">
+
+  <title>Welcome to Employee Database System</title>
+</head>
+
+<%- include('partials/header') -%>
+
+  <div class="container m-auto my-5">
+    <%- include('partials/messages') -%>
+      <table id="dataTable" class="table table-striped table-warning" style="width:100%">
+        <thead>
+          <tr class="table-dark">
+            <th>Name</th>
+            <th>Position</th>
+            <th>Contact</th>
+            <th>Joining date</th>
+            <th>Salary</th>
+            <th>Operation</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% employee.forEach(employee=>{ %>
+            <tr>
+              <td>
+                <%= employee.name %>
+              </td>
+              <td>
+                <%= employee.position %>
+              </td>
+              <td>
+                <%= employee.contact %>
+              </td>
+              <td>
+                <%= employee.joining_date %>
+              </td>
+              <td>
+                <%= employee.salary %>
+              </td>
+
+              <td>
+                <a class="btn btn-primary me-3" href="/home/update<%= employee.id%>">Edit</a>
+                <form style="display: inline;" action="/home/delete<%= employee.id %>?_method=DELETE" method="POST">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button class="btn btn-danger">Delete</button>
+                </form>
+
+              </td>
+            </tr>
+
+
+            <% }) %>
+
+
+
+
+        </tbody>
+        <tfoot>
+          <tr class="table-dark">
+            <th>Name</th>
+            <th>Position</th>
+            <th>Contact</th>
+            <th>Joining date</th>
+            <th>Salary</th>
+            <th>Operation</th>
+          </tr>
+        </tfoot>
+      </table>
+  </div>
+  <%- include('partials/footer') -%>

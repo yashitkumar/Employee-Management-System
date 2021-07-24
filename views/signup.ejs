@@ -1,0 +1,66 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="img/icon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/home.css">
+
+    <title>Welcome to Employee Database System</title>
+</head>
+
+
+
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand mt-1 text-center" href="#">
+                <img src="img/icon.jpg" alt="" height="80" width="80" class="mx-3 img-thumbnail">
+                <span class="fw-bolder fs-2 mx-5"> Employee Database System</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+        </div>
+
+
+    </nav>
+
+    <div class="container w-100">
+        <%- include('partials/messages') -%>
+    </div>
+    <h1 class="text-center mt-5 mb-3">Register</h1>
+
+    <div class="container w-25">
+        <form action="/signup" method="POST">
+
+            <div class="form-group px-0 my-4">
+                <input type="text" name="name" class="form-control" placeholder="Name">
+            </div>
+
+            <div class="form-group px-0 my-4">
+                <input type="email" name="email" class="form-control" placeholder="Email Address">
+            </div>
+
+            <div class="form-group px-0 my-4">
+                <input type="password" name="password" class="form-control" placeholder="Password">
+            </div>
+
+            <button type="submit" class="btn btn-danger btn-block w-100">Register</button>
+        </form>
+        <a href="/">Back to Login</a>
+    </div>
+
+
+    </div>
+
+    <%- include('partials/footer') -%>
